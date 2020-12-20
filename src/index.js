@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+// import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+window.renderStopWatchApp = (containerId) => {
+  ReactDOM.render(<App />, document.getElementById(containerId));
+  // serviceWorker.unregister();
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+window.unmountStopWatchApp = (containerId) => {
+  ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
+};
+
+if (!document.getElementById("StopWatchApp-container")) {
+  ReactDOM.render(<App />, document.getElementById("root"));
+  // serviceWorker.unregister();
+}
