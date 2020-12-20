@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/stop-watch-app/static/css/main.css",
+    "main.js": "/stop-watch-app/static/js/main.js",
+    "main.js.map": "/stop-watch-app/static/js/main.js.map",
+    "index.html": "/stop-watch-app/index.html",
+    "static/css/main.css.map": "/stop-watch-app/static/css/main.css.map",
+    "static/js/main.js.LICENSE.txt": "/stop-watch-app/static/js/main.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/css/main.css",
+    "static/js/main.js"
+  ]
+}
