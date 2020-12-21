@@ -1,11 +1,59 @@
+import { useState, Component } from "react";
+import Stopwatch from "./components/stopwatch";
+import Controls from "./components/controls";
+
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">Stop Watch App</header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    on: false,
+    start: 0,
+    current: 0,
+  };
+
+  startTimer = () => {
+    const { current, start } = this.state;
+    console.log(current, start);
+    console.log(Date.now() - current);
+    console.log(Date.now() - start);
+
+    this.setState({
+      on: true,
+      current: current,
+      start: Date.now() - current,
+    });
+
+    this.timer = setInterval(() => {
+      this.setState({ current: Date.now() - start });
+    }, 10);
+  };
+
+  stopTimer = () => {
+    this.setState({ on: false });
+    clearInterval(this.timer);
+  };
+
+  resetTimer = () => {
+    this.setState({ start: 0, current: 0 });
+  };
+
+  render() {
+    const { on, current } = this.state;
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Stopwatch time={current} />
+          <Controls
+            isOn={on}
+            time={current}
+            onStart={this.startTimer}
+            onStop={this.stopTimer}
+            onReset={this.resetTimer}
+          />
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
