@@ -40,13 +40,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Stopwatch time={current} />
-          <Controls
-            isOn={on}
-            time={current}
-            onStart={this.startTimer}
-            onStop={this.stopTimer}
-            onReset={this.resetTimer}
-          />
+          <div>
+            <Controls
+              isOn={on}
+              time={current}
+              onStart={this.startTimer}
+              onStop={this.stopTimer}
+              onReset={this.resetTimer}
+            />
+          </div>
         </header>
       </div>
     );
