@@ -39,8 +39,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Stopwatch time={current} />
           <div>
+            <Stopwatch time={current} />
+
             <Controls
               isOn={on}
               time={current}
