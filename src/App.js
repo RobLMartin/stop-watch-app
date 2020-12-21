@@ -13,9 +13,6 @@ class App extends Component {
 
   startTimer = () => {
     const { current, start } = this.state;
-    console.log(current, start);
-    console.log(Date.now() - current);
-    console.log(Date.now() - start);
 
     this.setState({
       on: true,
